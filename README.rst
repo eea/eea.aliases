@@ -11,6 +11,8 @@ EEA Aliases
 Introduction
 ============
 
+Add fallback aliases for common missing modules while migrating to Plone 5.2 (Python 3)
+
 See https://community.plone.org/t/zodbverify-porting-plone-with-zopedb-to-python3/8806/13
 
 
@@ -19,19 +21,32 @@ Contents
 
 .. contents::
 
-Main features
-=============
-
-1.
 
 Install
 =======
 
 * Add eea.aliases to your eggs and zcml section in your buildout and re-run buildout::
 
-    eggs =
-      ...
+    [buildout]
+    parts +=
+      zodbupdate
+
+    eggs +=
       eea.aliases
+      zodbverify
+
+    [zodbupdate]
+    recipe = zc.recipe.egg
+    eggs =
+      zodbupdate
+      ${buildout:eggs}
+
+
+Usage
+=====
+
+    $ bin/instance zodbverify
+    $ in/zodbupdate --convert-py3 --file=/data/filestorage/Data.fs --encoding utf8 --encoding-fallback latin1
 
 
 Source code
