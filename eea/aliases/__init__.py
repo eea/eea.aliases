@@ -3,6 +3,7 @@
 import logging
 from zope.interface import Interface
 from plone.app.upgrade.utils import alias_module
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("eea.aliases")
 
 try:
