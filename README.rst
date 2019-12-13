@@ -45,6 +45,8 @@ Install
 Usage
 =====
 
+  ::
+
     $ bin/instance zodbverify
     $ in/zodbupdate --convert-py3 --file=/data/filestorage/Data.fs --encoding utf8 --encoding-fallback latin1
 
@@ -53,7 +55,8 @@ Source code
 ===========
 
 Latest source code (Zope 2 compatible):
-  * `EEA on Github <https://github.com/eea/eea.aliases
+
+* `EEA on Github <https://github.com/eea/eea.aliases>`_
 
 
 Copyright and license
