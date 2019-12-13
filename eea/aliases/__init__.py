@@ -87,7 +87,8 @@ except ImportError:
 try:
     from Products.RedirectionTool.RedirectionTool import RedirectionTool
 except ImportError:
-    class RedirectionTool(object):
+    from Persistence import Persistent
+    class RedirectionTool(Persistent):
         pass
     alias_module('Products.RedirectionTool.RedirectionTool.RedirectionTool', RedirectionTool)
     logger.warn("Alias registered for missing: Products.RedirectionTool.RedirectionTool.RedirectionTool")
