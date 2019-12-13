@@ -51,5 +51,8 @@ setup(name=NAME,
       entry_points="""
       [z3c.autoinclude.plugin]
       target = plone
+
+      [zodbupdate]
+      renames = eea.aliases:rename_dict
       """
       )

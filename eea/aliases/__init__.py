@@ -68,3 +68,12 @@ except Exception as err:
     logger.exception(err)
 else:
     logger.warn("Manually register plone.dexterity.schema.generated utility")
+
+#
+# Custom renames for zodbupdate
+#
+rename_dict = {
+
+#    'mypackage.mymodule ClassName':'otherpackage.othermodule OtherClass'
+
+}
