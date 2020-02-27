@@ -1,18 +1,18 @@
 """ EEA Cache Installer
 """
-import os
+from os.path import join
 from setuptools import setup, find_packages
 
 NAME = 'eea.aliases'
 PATH = NAME.split('.') + ['version.txt']
-VERSION = open(os.path.join(*PATH)).read().strip()
+VERSION = open(join(*PATH)).read().strip()
 
 setup(name=NAME,
       version=VERSION,
       description="zodbupdate aliases",
       long_description_content_type="text/x-rst",
       long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+                       open(join("docs", "HISTORY.txt")).read(),
       # https://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
           "Framework :: Plone :: 4.0",
