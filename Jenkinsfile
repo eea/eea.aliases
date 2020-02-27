@@ -3,6 +3,7 @@ pipeline {
 
   environment {
         GIT_NAME = "eea.aliases"
+        GIT_HISTORYFILE = "docs/HISTORY.txt"
         SONARQUBE_TAGS = "plonesaas.eea.europa.eu"
     }
 
@@ -92,14 +93,6 @@ pipeline {
       steps {
         parallel(
 
-          "PloneSaaS": {
-            node(label: 'docker') {
-              catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
-                sh '''docker run -i --rm --name="$BUILD_TAG-plonesaas" -e GIT_NAME="$GIT_NAME" -e GIT_BRANCH="$BRANCH_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" eeacms/plonesaas-devel /debug.sh bin/test --test-path /plone/instance/src/$GIT_NAME -v -vv -s $GIT_NAME'''
-              }
-            }
-          },
-
           "Plone4": {
             node(label: 'docker') {
               sh '''docker run -i --rm --name="$BUILD_TAG-plone4" -e GIT_BRANCH="$BRANCH_NAME" -e ADDONS="$GIT_NAME" -e DEVELOP="src/$GIT_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" eeacms/plone-test:4 -v -vv -s $GIT_NAME'''
@@ -116,7 +109,15 @@ pipeline {
             node(label: 'docker') {
               sh '''docker run -i --rm --name="$BUILD_TAG-plone5py3" -e GIT_BRANCH="$BRANCH_NAME" -e ADDONS="$GIT_NAME" -e DEVELOP="src/$GIT_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" eeacms/plone-test:5-python3 -v -vv -s $GIT_NAME'''
             }
-          }
+          },
+
+          "PloneSaaS": {
+            node(label: 'docker') {
+              catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                sh '''docker run -i --rm --name="$BUILD_TAG-plonesaas" -e GIT_NAME="$GIT_NAME" -e GIT_BRANCH="$BRANCH_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" eeacms/plonesaas-devel /debug.sh bin/test --test-path /plone/instance/src/$GIT_NAME -v -vv -s $GIT_NAME'''
+              }
+            }
+          },
         )
       }
     }
