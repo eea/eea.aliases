@@ -1,13 +1,16 @@
 ===========
 EEA Aliases
 ===========
-.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.aliases/develop
-  :target: https://ci.eionet.europa.eu/job/eea/job/eea.aliases/job/develop/display/redirect
+.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=Eionet/eea.aliases/develop
+  :target: https://ci.eionet.europa.eu/job/Eionet/job/eea.aliases/job/develop/display/redirect
   :alt: Develop
-.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.aliases/master
-  :target: https://ci.eionet.europa.eu/job/eea/job/eea.aliases/job/master/display/redirect
+.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=Eionet/eea.aliases/master
+  :target: https://ci.eionet.europa.eu/job/Eionet/job/eea.aliases/job/master/display/redirect
   :alt: Master
-
+.. image:: https://img.shields.io/github/v/release/eea/eea.aliases
+  :target: https://eggrepo.eea.europa.eu/d/eea.aliases/
+  :alt: Release
+  
 Introduction
 ============
 
