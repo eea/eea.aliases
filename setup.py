@@ -53,6 +53,6 @@ setup(name=NAME,
       target = plone
 
       [zodbupdate]
-      renames = eea.aliases:rename_dict
+      renames = eea.aliases:RENAME_DICT
       """
       )
