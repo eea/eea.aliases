@@ -11,8 +11,8 @@ setup(name=NAME,
       version=VERSION,
       description="zodbupdate aliases",
       long_description_content_type="text/x-rst",
-      long_description=open("README.rst").read() + "\n" +
-                       open(join("docs", "HISTORY.txt")).read(),
+      long_description=open("README.rst").read() + "\n" + open(join(
+          "docs", "HISTORY.txt")).read(),
       # https://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
           "Framework :: Plone :: 4.0",
@@ -43,16 +43,16 @@ setup(name=NAME,
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-        'setuptools',
+          'setuptools',
       ],
       extras_require={
-        'test': ['plone.app.testing']
+          'test': ['plone.app.testing']
       },
       entry_points="""
       [z3c.autoinclude.plugin]
       target = plone
 
       [zodbupdate]
-      renames = eea.aliases:rename_dict
+      renames = eea.aliases:RENAME_DICT
       """
       )
