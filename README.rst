@@ -51,7 +51,7 @@ Usage
   ::
 
     $ bin/instance zodbverify
-    $ in/zodbupdate --convert-py3 --file=/data/filestorage/Data.fs --encoding utf8 --encoding-fallback latin1
+    $ bin/zodbupdate --convert-py3 --file=/data/filestorage/Data.fs --encoding utf8 --encoding-fallback latin1
 
 
 Source code
